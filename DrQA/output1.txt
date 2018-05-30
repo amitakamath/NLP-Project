@@ -1,0 +1,241 @@
+Training original DrQA for one epoch:
+
+
+
+(cookie) fatties@AdversarialSquad:~/DrQA$ python scripts/reader/train.py --embedding-file glove.840B.300d.txt --tune-partial 1000 --train-file SQuAD-v1.1-train-processed-spacy.txt --dev-file SQuAD-v1.1-dev-processed-spacy.txt --num-epochs 1
+WARN: fix_embeddings set to False as tune_partial > 0.
+03/18/2018 08:06:12 PM: [ COMMAND: scripts/reader/train.py --embedding-file glove.840B.300d.txt --tune-partial 1000 --train-file SQuAD-v1.1-train-processed-spacy.txt --dev-file SQuAD-v1.1-dev-processed-spacy.txt --num-epochs 1 ]
+03/18/2018 08:06:12 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:06:12 PM: [ Load data files ]
+03/18/2018 08:06:35 PM: [ Num train examples = 86599 ]
+03/18/2018 08:06:40 PM: [ Num dev examples = 10570 ]
+03/18/2018 08:06:40 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:06:40 PM: [ Training model from scratch... ]
+03/18/2018 08:06:40 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:06:40 PM: [ Generate features ]
+03/18/2018 08:06:48 PM: [ Num features = 74 ]
+03/18/2018 08:06:48 PM: [ {'pos=LS': 47, 'ner=GPE': 59, 'tf': 73, 'ner=PERCENT': 67, 'ner=': 54, 'pos=RB': 3, 'pos=RBS': 38, 'pos=VBN': 17, 'pos=SYM': 39, 'pos=VBZ': 7, 'pos=RBR': 46, 'ner=TIME': 70, 'pos=FW': 51, 'pos=MD': 43, 'ner=CARDINAL': 61, 'pos=ADD': 40, 'pos=RP': 42, 'pos=``': 18, 'pos=': 45, 'pos=CC': 13, 'pos=-LRB-': 24, 'pos=VB': 31, 'ner=DATE': 60, "pos=''": 20, 'pos=POS': 12, 'pos=PDT': 32, 'in_question_uncased': 1, 'pos=$': 41, 'pos=VBG': 14, 'pos=XX': 52, 'pos=JJR': 37, 'pos=VBP': 28, 'ner=PRODUCT': 64, 'ner=FAC': 56, 'pos=DT': 5, 'pos=NN': 6, 'ner=ORG': 58, 'pos=PRP$': 34, 'ner=LAW': 71, 'ner=LOC': 62, 'pos=UH': 49, 'ner=LANGUAGE': 72, 'pos=,': 4, 'ner=QUANTITY': 68, 'pos=_SP': 53, 'pos=NNS': 16, 'in_question_lemma': 2, 'pos=-RRB-': 26, 'pos=WP': 35, 'pos=WP$': 48, 'pos=VBD': 22, 'pos=TO': 30, 'ner=NORP': 55, 'pos=AFX': 36, 'pos=NNP': 11, 'ner=MONEY': 69, 'pos=JJ': 8, 'pos=IN': 10, 'pos=NNPS': 19, 'ner=WORK_OF_ART': 63, 'pos=PRP': 15, 'pos=WRB': 21, 'pos=HYPH': 29, 'pos=:': 33, 'pos=NFP': 50, 'ner=EVENT': 65, 'ner=PERSON': 57, 'pos=EX': 44, 'in_question': 0, 'pos=WDT': 25, 'ner=ORDINAL': 66, 'pos=JJS': 27, 'pos=CD': 23, 'pos=.': 9} ]
+03/18/2018 08:06:48 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:06:48 PM: [ Build dictionary ]
+03/18/2018 08:06:48 PM: [ Restricting to words in /home/fatties/DrQA/data/embeddings/glove.840B.300d.txt ]
+03/18/2018 08:07:34 PM: [ Num words in set = 2195960 ]
+03/18/2018 08:07:43 PM: [ Num words = 91539 ]
+03/18/2018 08:07:48 PM: [ Loading pre-trained embeddings for 91537 words from /home/fatties/DrQA/data/embeddings/glove.840B.300d.txt ]
+03/18/2018 08:07:57 PM: [ WARN: Duplicate embedding found for Kṛṣṇa ]
+03/18/2018 08:08:01 PM: [ WARN: Duplicate embedding found for · ]
+03/18/2018 08:08:03 PM: [ WARN: Duplicate embedding found for ; ]
+03/18/2018 08:08:04 PM: [ WARN: Duplicate embedding found for à ]
+03/18/2018 08:08:09 PM: [ WARN: Duplicate embedding found for José ]
+03/18/2018 08:08:12 PM: [ WARN: Duplicate embedding found for Justiça ]
+03/18/2018 08:08:12 PM: [ WARN: Duplicate embedding found for für ]
+03/18/2018 08:08:14 PM: [ WARN: Duplicate embedding found for Câmara ]
+03/18/2018 08:08:21 PM: [ WARN: Duplicate embedding found for André ]
+03/18/2018 08:08:22 PM: [ WARN: Duplicate embedding found for François ]
+03/18/2018 08:08:22 PM: [ WARN: Duplicate embedding found for María ]
+03/18/2018 08:08:25 PM: [ WARN: Duplicate embedding found for García ]
+03/18/2018 08:08:27 PM: [ WARN: Duplicate embedding found for René ]
+03/18/2018 08:08:31 PM: [ WARN: Duplicate embedding found for Vaiṣṇava ]
+03/18/2018 08:08:33 PM: [ WARN: Duplicate embedding found for câmara ]
+03/18/2018 08:08:36 PM: [ WARN: Duplicate embedding found for Café ]
+03/18/2018 08:08:38 PM: [ WARN: Duplicate embedding found for São ]
+03/18/2018 08:08:43 PM: [ WARN: Duplicate embedding found for Müller ]
+03/18/2018 08:08:44 PM: [ Loaded 91537 embeddings (100.00%) ]
+03/18/2018 08:08:44 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:08:44 PM: [ Counting 1000 most frequent question words ]
+03/18/2018 08:08:48 PM: [ ('?', 85719) ]
+03/18/2018 08:08:48 PM: [ ('the', 60885) ]
+03/18/2018 08:08:48 PM: [ ('What', 37248) ]
+03/18/2018 08:08:48 PM: [ ('of', 33983) ]
+03/18/2018 08:08:48 PM: [ ('in', 21826) ]
+03/18/2018 08:08:48 PM: [ ... ]
+03/18/2018 08:08:48 PM: [ ('big', 105) ]
+03/18/2018 08:08:48 PM: [ ('operate', 104) ]
+03/18/2018 08:08:48 PM: [ ('contemporary', 104) ]
+03/18/2018 08:08:48 PM: [ ('occurred', 104) ]
+03/18/2018 08:08:48 PM: [ ('currently', 104) ]
+03/18/2018 08:09:18 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:09:18 PM: [ Make data loaders ]
+03/18/2018 08:09:18 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:09:18 PM: [ CONFIG:
+{
+    "batch_size": 32,
+    "checkpoint": false,
+    "concat_rnn_layers": true,
+    "cuda": true,
+    "data_dir": "/home/fatties/DrQA/data/datasets",
+    "data_workers": 5,
+    "dev_file": "/home/fatties/DrQA/data/datasets/SQuAD-v1.1-dev-processed-spacy.txt",
+    "dev_json": "/home/fatties/DrQA/data/datasets/SQuAD-v1.1-dev.json",
+    "display_iter": 25,
+    "doc_layers": 3,
+    "dropout_emb": 0.4,
+    "dropout_rnn": 0.4,
+    "dropout_rnn_output": true,
+    "embed_dir": "/home/fatties/DrQA/data/embeddings",
+    "embedding_dim": 300,
+    "embedding_file": "/home/fatties/DrQA/data/embeddings/glove.840B.300d.txt",
+    "expand_dictionary": false,
+    "fix_embeddings": false,
+    "gpu": -1,
+    "grad_clipping": 10,
+    "hidden_size": 128,
+    "learning_rate": 0.1,
+    "log_file": "/tmp/drqa-models/20180318-66378c86.txt",
+    "max_len": 15,
+    "model_dir": "/tmp/drqa-models/",
+    "model_file": "/tmp/drqa-models/20180318-66378c86.mdl",
+    "model_name": "20180318-66378c86",
+    "model_type": "rnn",
+    "momentum": 0,
+    "no_cuda": false,
+    "num_epochs": 1,
+    "official_eval": true,
+    "optimizer": "adamax",
+    "parallel": false,
+    "pretrained": "",
+    "question_layers": 3,
+    "question_merge": "self_attn",
+    "random_seed": 1013,
+    "restrict_vocab": true,
+    "rnn_padding": false,
+    "rnn_type": "lstm",
+    "sort_by_len": true,
+    "test_batch_size": 128,
+    "train_file": "/home/fatties/DrQA/data/datasets/SQuAD-v1.1-train-processed-spacy.txt",
+    "tune_partial": 1000,
+    "uncased_doc": false,
+    "uncased_question": false,
+    "use_in_question": true,
+    "use_lemma": true,
+    "use_ner": true,
+    "use_pos": true,
+    "use_qemb": true,
+    "use_tf": true,
+    "valid_metric": "f1",
+    "weight_decay": 0
+} ]
+03/18/2018 08:09:18 PM: [ ---------------------------------------------------------------------------------------------------- ]
+03/18/2018 08:09:18 PM: [ Starting training... ]
+/home/fatties/DrQA/drqa/reader/layers.py:209: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  alpha_flat = F.softmax(scores.view(-1, y.size(1)))
+/home/fatties/DrQA/drqa/reader/layers.py:280: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  alpha = F.softmax(scores)
+/home/fatties/DrQA/drqa/reader/layers.py:250: UserWarning: Implicit dimension choice for log_softmax has been deprecated. Change the call to include dim=X as an argument.
+  alpha = F.log_softmax(xWy)
+03/18/2018 08:09:23 PM: [ train: Epoch = 0 | iter = 0/2707 | loss = 9.37 | elapsed time = 5.19 (s) ]
+03/18/2018 08:09:26 PM: [ train: Epoch = 0 | iter = 25/2707 | loss = 9.29 | elapsed time = 8.37 (s) ]
+03/18/2018 08:09:29 PM: [ train: Epoch = 0 | iter = 50/2707 | loss = 8.42 | elapsed time = 10.94 (s) ]
+03/18/2018 08:09:32 PM: [ train: Epoch = 0 | iter = 75/2707 | loss = 8.28 | elapsed time = 14.14 (s) ]
+03/18/2018 08:09:35 PM: [ train: Epoch = 0 | iter = 100/2707 | loss = 7.30 | elapsed time = 16.79 (s) ]
+03/18/2018 08:09:37 PM: [ train: Epoch = 0 | iter = 125/2707 | loss = 7.13 | elapsed time = 19.45 (s) ]
+03/18/2018 08:09:40 PM: [ train: Epoch = 0 | iter = 150/2707 | loss = 7.28 | elapsed time = 22.45 (s) ]
+03/18/2018 08:09:43 PM: [ train: Epoch = 0 | iter = 175/2707 | loss = 6.81 | elapsed time = 25.11 (s) ]
+03/18/2018 08:09:46 PM: [ train: Epoch = 0 | iter = 200/2707 | loss = 6.67 | elapsed time = 27.86 (s) ]
+03/18/2018 08:09:49 PM: [ train: Epoch = 0 | iter = 225/2707 | loss = 6.64 | elapsed time = 30.65 (s) ]
+03/18/2018 08:09:51 PM: [ train: Epoch = 0 | iter = 250/2707 | loss = 6.45 | elapsed time = 33.46 (s) ]
+03/18/2018 08:09:54 PM: [ train: Epoch = 0 | iter = 275/2707 | loss = 6.45 | elapsed time = 36.25 (s) ]
+03/18/2018 08:09:57 PM: [ train: Epoch = 0 | iter = 300/2707 | loss = 6.29 | elapsed time = 39.03 (s) ]
+03/18/2018 08:10:00 PM: [ train: Epoch = 0 | iter = 325/2707 | loss = 6.15 | elapsed time = 41.88 (s) ]
+03/18/2018 08:10:03 PM: [ train: Epoch = 0 | iter = 350/2707 | loss = 6.26 | elapsed time = 44.87 (s) ]
+03/18/2018 08:10:05 PM: [ train: Epoch = 0 | iter = 375/2707 | loss = 5.86 | elapsed time = 47.45 (s) ]
+03/18/2018 08:10:08 PM: [ train: Epoch = 0 | iter = 400/2707 | loss = 6.03 | elapsed time = 50.35 (s) ]
+03/18/2018 08:10:11 PM: [ train: Epoch = 0 | iter = 425/2707 | loss = 5.98 | elapsed time = 53.12 (s) ]
+03/18/2018 08:10:14 PM: [ train: Epoch = 0 | iter = 450/2707 | loss = 5.95 | elapsed time = 55.95 (s) ]
+03/18/2018 08:10:17 PM: [ train: Epoch = 0 | iter = 475/2707 | loss = 5.92 | elapsed time = 58.68 (s) ]
+03/18/2018 08:10:20 PM: [ train: Epoch = 0 | iter = 500/2707 | loss = 5.73 | elapsed time = 61.64 (s) ]
+03/18/2018 08:10:23 PM: [ train: Epoch = 0 | iter = 525/2707 | loss = 5.86 | elapsed time = 64.68 (s) ]
+03/18/2018 08:10:25 PM: [ train: Epoch = 0 | iter = 550/2707 | loss = 5.50 | elapsed time = 67.28 (s) ]
+03/18/2018 08:10:28 PM: [ train: Epoch = 0 | iter = 575/2707 | loss = 5.77 | elapsed time = 70.21 (s) ]
+03/18/2018 08:10:31 PM: [ train: Epoch = 0 | iter = 600/2707 | loss = 5.65 | elapsed time = 72.97 (s) ]
+03/18/2018 08:10:34 PM: [ train: Epoch = 0 | iter = 625/2707 | loss = 5.55 | elapsed time = 75.88 (s) ]
+03/18/2018 08:10:37 PM: [ train: Epoch = 0 | iter = 650/2707 | loss = 5.27 | elapsed time = 78.55 (s) ]
+03/18/2018 08:10:39 PM: [ train: Epoch = 0 | iter = 675/2707 | loss = 5.52 | elapsed time = 81.25 (s) ]
+03/18/2018 08:10:42 PM: [ train: Epoch = 0 | iter = 700/2707 | loss = 5.39 | elapsed time = 84.14 (s) ]
+03/18/2018 08:10:45 PM: [ train: Epoch = 0 | iter = 725/2707 | loss = 5.48 | elapsed time = 86.95 (s) ]
+03/18/2018 08:10:48 PM: [ train: Epoch = 0 | iter = 750/2707 | loss = 5.61 | elapsed time = 89.86 (s) ]
+03/18/2018 08:10:50 PM: [ train: Epoch = 0 | iter = 775/2707 | loss = 5.16 | elapsed time = 92.44 (s) ]
+03/18/2018 08:10:53 PM: [ train: Epoch = 0 | iter = 800/2707 | loss = 5.35 | elapsed time = 95.29 (s) ]
+03/18/2018 08:10:56 PM: [ train: Epoch = 0 | iter = 825/2707 | loss = 5.06 | elapsed time = 98.06 (s) ]
+03/18/2018 08:10:59 PM: [ train: Epoch = 0 | iter = 850/2707 | loss = 5.31 | elapsed time = 101.05 (s) ]
+03/18/2018 08:11:02 PM: [ train: Epoch = 0 | iter = 875/2707 | loss = 5.10 | elapsed time = 103.90 (s) ]
+03/18/2018 08:11:05 PM: [ train: Epoch = 0 | iter = 900/2707 | loss = 5.21 | elapsed time = 106.70 (s) ]
+03/18/2018 08:11:08 PM: [ train: Epoch = 0 | iter = 925/2707 | loss = 5.08 | elapsed time = 109.59 (s) ]
+03/18/2018 08:11:10 PM: [ train: Epoch = 0 | iter = 950/2707 | loss = 5.07 | elapsed time = 112.34 (s) ]
+03/18/2018 08:11:13 PM: [ train: Epoch = 0 | iter = 975/2707 | loss = 5.12 | elapsed time = 115.16 (s) ]
+03/18/2018 08:11:16 PM: [ train: Epoch = 0 | iter = 1000/2707 | loss = 5.13 | elapsed time = 118.01 (s) ]
+03/18/2018 08:11:19 PM: [ train: Epoch = 0 | iter = 1025/2707 | loss = 5.25 | elapsed time = 120.86 (s) ]
+03/18/2018 08:11:22 PM: [ train: Epoch = 0 | iter = 1050/2707 | loss = 5.16 | elapsed time = 123.60 (s) ]
+03/18/2018 08:11:24 PM: [ train: Epoch = 0 | iter = 1075/2707 | loss = 4.94 | elapsed time = 126.36 (s) ]
+03/18/2018 08:11:27 PM: [ train: Epoch = 0 | iter = 1100/2707 | loss = 5.28 | elapsed time = 129.45 (s) ]
+03/18/2018 08:11:30 PM: [ train: Epoch = 0 | iter = 1125/2707 | loss = 4.88 | elapsed time = 132.08 (s) ]
+03/18/2018 08:11:33 PM: [ train: Epoch = 0 | iter = 1150/2707 | loss = 4.82 | elapsed time = 134.79 (s) ]
+03/18/2018 08:11:35 PM: [ train: Epoch = 0 | iter = 1175/2707 | loss = 4.68 | elapsed time = 137.44 (s) ]
+03/18/2018 08:11:38 PM: [ train: Epoch = 0 | iter = 1200/2707 | loss = 4.98 | elapsed time = 140.40 (s) ]
+03/18/2018 08:11:41 PM: [ train: Epoch = 0 | iter = 1225/2707 | loss = 5.10 | elapsed time = 143.26 (s) ]
+03/18/2018 08:11:44 PM: [ train: Epoch = 0 | iter = 1250/2707 | loss = 4.92 | elapsed time = 146.19 (s) ]
+03/18/2018 08:11:47 PM: [ train: Epoch = 0 | iter = 1275/2707 | loss = 4.85 | elapsed time = 148.92 (s) ]
+03/18/2018 08:11:50 PM: [ train: Epoch = 0 | iter = 1300/2707 | loss = 4.64 | elapsed time = 151.53 (s) ]
+03/18/2018 08:11:52 PM: [ train: Epoch = 0 | iter = 1325/2707 | loss = 4.63 | elapsed time = 154.28 (s) ]
+03/18/2018 08:11:55 PM: [ train: Epoch = 0 | iter = 1350/2707 | loss = 4.97 | elapsed time = 157.07 (s) ]
+03/18/2018 08:11:58 PM: [ train: Epoch = 0 | iter = 1375/2707 | loss = 4.76 | elapsed time = 159.93 (s) ]
+03/18/2018 08:12:01 PM: [ train: Epoch = 0 | iter = 1400/2707 | loss = 4.82 | elapsed time = 162.88 (s) ]
+03/18/2018 08:12:04 PM: [ train: Epoch = 0 | iter = 1425/2707 | loss = 4.81 | elapsed time = 165.81 (s) ]
+03/18/2018 08:12:07 PM: [ train: Epoch = 0 | iter = 1450/2707 | loss = 4.70 | elapsed time = 168.55 (s) ]
+03/18/2018 08:12:09 PM: [ train: Epoch = 0 | iter = 1475/2707 | loss = 4.72 | elapsed time = 171.39 (s) ]
+03/18/2018 08:12:12 PM: [ train: Epoch = 0 | iter = 1500/2707 | loss = 4.87 | elapsed time = 174.32 (s) ]
+03/18/2018 08:12:15 PM: [ train: Epoch = 0 | iter = 1525/2707 | loss = 4.74 | elapsed time = 176.93 (s) ]
+03/18/2018 08:12:18 PM: [ train: Epoch = 0 | iter = 1550/2707 | loss = 4.87 | elapsed time = 179.78 (s) ]
+03/18/2018 08:12:21 PM: [ train: Epoch = 0 | iter = 1575/2707 | loss = 4.52 | elapsed time = 182.62 (s) ]
+03/18/2018 08:12:23 PM: [ train: Epoch = 0 | iter = 1600/2707 | loss = 4.76 | elapsed time = 185.45 (s) ]
+03/18/2018 08:12:26 PM: [ train: Epoch = 0 | iter = 1625/2707 | loss = 4.79 | elapsed time = 188.32 (s) ]
+03/18/2018 08:12:29 PM: [ train: Epoch = 0 | iter = 1650/2707 | loss = 4.56 | elapsed time = 191.03 (s) ]
+03/18/2018 08:12:32 PM: [ train: Epoch = 0 | iter = 1675/2707 | loss = 4.65 | elapsed time = 193.89 (s) ]
+03/18/2018 08:12:35 PM: [ train: Epoch = 0 | iter = 1700/2707 | loss = 4.76 | elapsed time = 197.03 (s) ]
+03/18/2018 08:12:38 PM: [ train: Epoch = 0 | iter = 1725/2707 | loss = 4.58 | elapsed time = 200.01 (s) ]
+03/18/2018 08:12:41 PM: [ train: Epoch = 0 | iter = 1750/2707 | loss = 4.41 | elapsed time = 202.84 (s) ]
+03/18/2018 08:12:44 PM: [ train: Epoch = 0 | iter = 1775/2707 | loss = 4.52 | elapsed time = 205.60 (s) ]
+03/18/2018 08:12:46 PM: [ train: Epoch = 0 | iter = 1800/2707 | loss = 4.34 | elapsed time = 208.26 (s) ]
+03/18/2018 08:12:49 PM: [ train: Epoch = 0 | iter = 1825/2707 | loss = 4.32 | elapsed time = 211.01 (s) ]
+03/18/2018 08:12:52 PM: [ train: Epoch = 0 | iter = 1850/2707 | loss = 4.66 | elapsed time = 214.17 (s) ]
+03/18/2018 08:12:55 PM: [ train: Epoch = 0 | iter = 1875/2707 | loss = 4.55 | elapsed time = 216.94 (s) ]
+03/18/2018 08:12:58 PM: [ train: Epoch = 0 | iter = 1900/2707 | loss = 4.46 | elapsed time = 219.99 (s) ]
+03/18/2018 08:13:01 PM: [ train: Epoch = 0 | iter = 1925/2707 | loss = 4.42 | elapsed time = 222.75 (s) ]
+03/18/2018 08:13:04 PM: [ train: Epoch = 0 | iter = 1950/2707 | loss = 4.81 | elapsed time = 225.62 (s) ]
+03/18/2018 08:13:07 PM: [ train: Epoch = 0 | iter = 1975/2707 | loss = 4.47 | elapsed time = 228.73 (s) ]
+03/18/2018 08:13:09 PM: [ train: Epoch = 0 | iter = 2000/2707 | loss = 4.34 | elapsed time = 231.39 (s) ]
+03/18/2018 08:13:12 PM: [ train: Epoch = 0 | iter = 2025/2707 | loss = 4.70 | elapsed time = 234.24 (s) ]
+03/18/2018 08:13:15 PM: [ train: Epoch = 0 | iter = 2050/2707 | loss = 4.22 | elapsed time = 237.20 (s) ]
+03/18/2018 08:13:18 PM: [ train: Epoch = 0 | iter = 2075/2707 | loss = 4.61 | elapsed time = 240.01 (s) ]
+03/18/2018 08:13:21 PM: [ train: Epoch = 0 | iter = 2100/2707 | loss = 4.50 | elapsed time = 242.89 (s) ]
+03/18/2018 08:13:24 PM: [ train: Epoch = 0 | iter = 2125/2707 | loss = 4.48 | elapsed time = 245.53 (s) ]
+03/18/2018 08:13:26 PM: [ train: Epoch = 0 | iter = 2150/2707 | loss = 4.68 | elapsed time = 248.24 (s) ]
+03/18/2018 08:13:29 PM: [ train: Epoch = 0 | iter = 2175/2707 | loss = 4.40 | elapsed time = 251.24 (s) ]
+03/18/2018 08:13:32 PM: [ train: Epoch = 0 | iter = 2200/2707 | loss = 4.39 | elapsed time = 254.11 (s) ]
+03/18/2018 08:13:35 PM: [ train: Epoch = 0 | iter = 2225/2707 | loss = 4.76 | elapsed time = 257.02 (s) ]
+03/18/2018 08:13:38 PM: [ train: Epoch = 0 | iter = 2250/2707 | loss = 4.35 | elapsed time = 259.92 (s) ]
+03/18/2018 08:13:41 PM: [ train: Epoch = 0 | iter = 2275/2707 | loss = 4.48 | elapsed time = 262.64 (s) ]
+03/18/2018 08:13:43 PM: [ train: Epoch = 0 | iter = 2300/2707 | loss = 4.41 | elapsed time = 265.48 (s) ]
+03/18/2018 08:13:46 PM: [ train: Epoch = 0 | iter = 2325/2707 | loss = 4.33 | elapsed time = 268.40 (s) ]
+03/18/2018 08:13:49 PM: [ train: Epoch = 0 | iter = 2350/2707 | loss = 4.36 | elapsed time = 271.18 (s) ]
+03/18/2018 08:13:52 PM: [ train: Epoch = 0 | iter = 2375/2707 | loss = 4.52 | elapsed time = 274.30 (s) ]
+03/18/2018 08:13:55 PM: [ train: Epoch = 0 | iter = 2400/2707 | loss = 4.41 | elapsed time = 277.20 (s) ]
+03/18/2018 08:13:58 PM: [ train: Epoch = 0 | iter = 2425/2707 | loss = 4.60 | elapsed time = 279.93 (s) ]
+03/18/2018 08:14:01 PM: [ train: Epoch = 0 | iter = 2450/2707 | loss = 4.46 | elapsed time = 282.85 (s) ]
+03/18/2018 08:14:04 PM: [ train: Epoch = 0 | iter = 2475/2707 | loss = 4.02 | elapsed time = 285.69 (s) ]
+03/18/2018 08:14:07 PM: [ train: Epoch = 0 | iter = 2500/2707 | loss = 4.41 | elapsed time = 288.56 (s) ]
+03/18/2018 08:14:09 PM: [ train: Epoch = 0 | iter = 2525/2707 | loss = 4.31 | elapsed time = 291.25 (s) ]
+03/18/2018 08:14:12 PM: [ train: Epoch = 0 | iter = 2550/2707 | loss = 4.46 | elapsed time = 294.11 (s) ]
+03/18/2018 08:14:15 PM: [ train: Epoch = 0 | iter = 2575/2707 | loss = 4.41 | elapsed time = 296.98 (s) ]
+03/18/2018 08:14:18 PM: [ train: Epoch = 0 | iter = 2600/2707 | loss = 4.13 | elapsed time = 299.95 (s) ]
+03/18/2018 08:14:21 PM: [ train: Epoch = 0 | iter = 2625/2707 | loss = 4.52 | elapsed time = 302.88 (s) ]
+03/18/2018 08:14:24 PM: [ train: Epoch = 0 | iter = 2650/2707 | loss = 4.31 | elapsed time = 305.55 (s) ]
+03/18/2018 08:14:26 PM: [ train: Epoch = 0 | iter = 2675/2707 | loss = 4.23 | elapsed time = 308.24 (s) ]
+03/18/2018 08:14:29 PM: [ train: Epoch = 0 | iter = 2700/2707 | loss = 4.21 | elapsed time = 311.42 (s) ]
+03/18/2018 08:14:30 PM: [ train: Epoch 0 done. Time for epoch = 312.12 (s) ]
+/home/fatties/DrQA/drqa/reader/layers.py:253: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  alpha = F.softmax(xWy)
+03/18/2018 08:14:45 PM: [ train valid unofficial: Epoch = 0 | start = 51.82 | end = 55.97 | exact = 43.05 | examples = 10016 | valid time = 15.10 (s) ]
+03/18/2018 08:14:56 PM: [ dev valid unofficial: Epoch = 0 | start = 58.51 | end = 61.83 | exact = 51.10 | examples = 10570 | valid time = 10.94 (s) ]
+03/18/2018 08:15:10 PM: [ dev valid official: Epoch = 0 | EM = 53.38 | F1 = 64.73 | examples = 10570 | valid time = 13.63 (s) ]
+03/18/2018 08:15:10 PM: [ Best valid: f1 = 64.73 (epoch 0, 2707 updates) ]
+
